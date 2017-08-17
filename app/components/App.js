@@ -14,8 +14,8 @@ class App extends React.Component {
                 <div className="main-container">
                     <Navbar />
                     <Switch>
-                        <Route exact path="/" component={HomeContainer} />
-                        <Route exact path="/forecast" component={Forecast} />
+                        <Route exact path="/" component = { HomeContainer } />
+                        <Route exact path="/forecast" component = { Forecast } />
                         <Route render={function () {
                             return <h1>Not Found</h1>
                         }} />
