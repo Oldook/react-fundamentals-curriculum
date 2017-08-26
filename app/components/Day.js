@@ -1,5 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
+var Link = require('react-router-dom').Link;
 
 class Day extends React.Component {
     constructor(props) {
@@ -41,10 +42,14 @@ class Day extends React.Component {
 
     render() {
         return (
-            <div className = "day-container">
-                <img className = "weather" src = {"/app/images/weather-icons/" + this.props.forecast.weather[0].icon + ".svg"} />
-                <h2 className = "date">{this.getDate(this.props.forecast.dt)}</h2>
-            </div>
+            <Link className = "detailLink" to={{
+                pathname: '/details',
+            }}>
+                <div className = "day-container">
+                    <img className = "weather" src = {"/app/images/weather-icons/" + this.props.forecast.weather[0].icon + ".svg"} />
+                    <h2 className = "date">{this.getDate(this.props.forecast.dt)}</h2>
+                </div>  
+            </Link>
         )
     }
 }
