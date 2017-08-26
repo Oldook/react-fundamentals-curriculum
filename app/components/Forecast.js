@@ -1,5 +1,6 @@
 var React = require('react');
 var Loading = require('./Loading');
+var Day = require('./Day');
 var queryString = require('query-string');
 var api = require('../utils/api');
 
@@ -14,15 +15,20 @@ class Forecast extends React.Component {
     } 
 
     componentDidMount() {
+        var city = queryString.parse(this.props.location.search).city;
+
         this.setState(function () {
             return {
                 loading: true
             }
         })
-        api.getForecast(queryString.parse(this.props.location.search).city).then(function (response) {
+        
+        api.getForecast(city).then(function (response) {
+            console.log(response);
+
             this.setState(function () {
-                console.log(response);
                 return {
+                    city: city,
                     loading: false,
                     forecast: response
                 }
@@ -33,9 +39,15 @@ class Forecast extends React.Component {
     render () {
         return this.state.loading ?
             <Loading />
-            :
-            <p>city</p>
-            
+            : 
+            <div>
+                <h1 className="forecast-header">{this.state.city}</h1>
+                <div className="forecast-container">
+                    {this.state.forecast.list.map(function (item, i) {
+                        return <Day key = {i} forecast = {item} />
+                    })}
+                </div>
+            </div>       
     }
 }
 
