@@ -56,8 +56,8 @@ class Forecast extends React.Component {
                 <h1 className="forecast-header">{this.state.city}</h1>
                 <div className="forecast-container">
                     {this.state.forecast.list.map(function (item, i) {
-                        return <Day key = {i} forecast = {item} />
-                    })}
+                        return <Day key = {i} forecast = {item} city = {this.state.city}/>
+                    }.bind(this))}
                 </div>
             </div>       
     }

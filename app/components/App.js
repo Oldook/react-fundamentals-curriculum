@@ -17,7 +17,7 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component = { HomeContainer } />
                         <Route exact path="/forecast" component = { Forecast } />
-                        <Route exact path="/details" component = { Details } />
+                        <Route exact path="/details/:city" component = { Details } />
                         <Route render={function () {
                             return <h1>Not Found</h1>
                         }} />

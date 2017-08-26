@@ -43,7 +43,8 @@ class Day extends React.Component {
     render() {
         return (
             <Link className = "detailLink" to={{
-                pathname: '/details',
+                pathname: '/details/' + this.props.city,
+                state: { forecast: this.props.forecast }
             }}>
                 <div className = "day-container">
                     <img className = "weather" src = {"/app/images/weather-icons/" + this.props.forecast.weather[0].icon + ".svg"} />
@@ -55,7 +56,8 @@ class Day extends React.Component {
 }
 
 Day.propTypes = {
-    forecast: PropTypes.object.isRequired
+    forecast: PropTypes.object.isRequired,
+    city: PropTypes.string.isRequired
 }
 
 module.exports = Day;
