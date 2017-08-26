@@ -12,11 +12,11 @@ class Forecast extends React.Component {
             forecast: [],
             loading: true
         }
+
+        this.apiRequest = this.apiRequest.bind(this);
     } 
 
-    componentDidMount() {
-        var city = queryString.parse(this.props.location.search).city;
-
+    apiRequest(city) {
         this.setState(function () {
             return {
                 loading: true
@@ -34,6 +34,18 @@ class Forecast extends React.Component {
                 }
             })
         }.bind(this));
+    }
+
+    componentDidMount() {
+        var city = queryString.parse(this.props.location.search).city;
+
+        this.apiRequest(city);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        var city = queryString.parse(nextProps.location.search).city;
+
+        this.apiRequest(city);
     }
 
     render () {

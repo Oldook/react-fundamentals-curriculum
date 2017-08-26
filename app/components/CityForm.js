@@ -9,15 +9,7 @@ class CityForm extends React.Component {
             city: ''
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-    }
-    handleSubmit (event) {
-        event.preventDefault();
-
-        this.props.onSubmit(
-            this.state.city
-        );
     }
     handleChange (event) {
         var value = event.target.value;
@@ -66,8 +58,7 @@ class CityForm extends React.Component {
 }
 
 CityForm.propTypes = {
-    flexDirection: PropTypes.string.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    flexDirection: PropTypes.string.isRequired
 };
 
 module.exports = CityForm;
