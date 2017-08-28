@@ -1,6 +1,5 @@
 var React = require('react');
 var CityForm = require('./CityForm');
-var api = require('../utils/api');
 
 class HomeContainer extends React.Component {
     render () {

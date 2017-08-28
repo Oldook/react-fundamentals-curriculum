@@ -7,28 +7,28 @@ class Day extends React.Component {
         super(props);
         
         this.days = [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            'Sunday',
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday'
         ];
 
         this.months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "June",
-            "July",
-            "Aug",
-            "Sept",
-            "Oct",
-            "Nov",
-            "Dec"
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'June',
+            'July',
+            'Aug',
+            'Sept',
+            'Oct',
+            'Nov',
+            'Dec'
         ];
 
         this.getDate = this.getDate.bind(this);
@@ -47,7 +47,7 @@ class Day extends React.Component {
                 state: { forecast: this.props.forecast }
             }}>
                 <div className = "day-container">
-                    <img className = "weather" src = {"/app/images/weather-icons/" + this.props.forecast.weather[0].icon + ".svg"} />
+                    <img className = "weather" src = {'/app/images/weather-icons/' + this.props.forecast.weather[0].icon + '.svg'} />
                     <h2 className = "date">{this.getDate(this.props.forecast.dt)}</h2>
                 </div>  
             </Link>

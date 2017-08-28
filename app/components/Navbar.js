@@ -5,7 +5,7 @@ class Navbar extends React.Component {
     render () {
         return (
             <div className="app-navbar">
-                <h1>WeatherApp Header</h1>
+                <h1>WeatherApp</h1>
                 <CityForm flexDirection="row" />
             </div>
         );

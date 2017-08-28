@@ -24,8 +24,6 @@ class Forecast extends React.Component {
         })
         
         api.getForecast(city).then(function (response) {
-            console.log(response);
-
             this.setState(function () {
                 return {
                     city: city,

@@ -1,13 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
-var styles = {
-    content: {
-        textAlign: 'center',
-        fontSize: '35px'
-    }
-}
-
 class Loading extends React.Component {
     constructor(props) {
         super(props);
@@ -39,7 +32,10 @@ class Loading extends React.Component {
     }
     render () {
         return (
-            <p style = { styles.content }>
+            <p style = {{
+                textAlign: 'center',
+                fontSize: '35px'
+            }}>
                 {this.state.text}
             </p>
         )

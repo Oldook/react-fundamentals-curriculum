@@ -15,11 +15,11 @@ var config = {
             { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
             {
                 test: /\.png$/,
-                loader: "url-loader?limit=100000"
+                loader: 'url-loader?limit=100000'
             },
             {
                 test: /\.jpg$/,
-                loader: "file-loader"
+                loader: 'file-loader'
             },
             {
                 test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
