@@ -1,0 +1,64 @@
+var React = require('react');
+var Loading = require('./Loading');
+var Day = require('./Day');
+var queryString = require('query-string');
+var api = require('../utils/api');
+
+class Forecast extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            forecast: [],
+            loading: true
+        }
+
+        this.apiRequest = this.apiRequest.bind(this);
+    } 
+
+    apiRequest(city) {
+        this.setState(function () {
+            return {
+                loading: true
+            }
+        })
+        
+        api.getForecast(city).then(function (response) {
+            this.setState(function () {
+                return {
+                    city: city,
+                    loading: false,
+                    forecast: response
+                }
+            })
+        }.bind(this));
+    }
+
+    componentDidMount() {
+        var city = queryString.parse(this.props.location.search).city;
+
+        this.apiRequest(city);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        var city = queryString.parse(nextProps.location.search).city;
+
+        this.apiRequest(city);
+    }
+
+    render () {
+        return this.state.loading ?
+            <Loading />
+            : 
+            <div>
+                <h1 className="forecast-header">{this.state.city}</h1>
+                <div className="forecast-container">
+                    {this.state.forecast.list.map(function (item, i) {
+                        return <Day key = {i} forecast = {item} city = {this.state.city}/>
+                    }.bind(this))}
+                </div>
+            </div>       
+    }
+}
+
+module.exports = Forecast;
