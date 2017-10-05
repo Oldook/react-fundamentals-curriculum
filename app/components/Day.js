@@ -1,6 +1,6 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var Link = require('react-router-dom').Link;
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Day extends React.Component {
     constructor(props) {
@@ -60,4 +60,4 @@ Day.propTypes = {
     city: PropTypes.string.isRequired
 }
 
-module.exports = Day;
+export default Day;

@@ -1,8 +1,8 @@
-var React = require('react');
-var Loading = require('./Loading');
-var Day = require('./Day');
-var queryString = require('query-string');
-var api = require('../utils/api');
+import React from 'react';
+import Loading  from './Loading';
+import Day from './Day';
+import queryString from 'query-string';
+import api from '../utils/api';
 
 class Forecast extends React.Component {
     constructor(props) {
@@ -61,4 +61,4 @@ class Forecast extends React.Component {
     }
 }
 
-module.exports = Forecast;
+export default Forecast;

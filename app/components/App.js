@@ -1,17 +1,15 @@
-var React = require('react');
-var Navbar = require('./Navbar');
-var HomeContainer = require('./HomeContainer');
-var Forecast = require('./Forecast');
-var Details = require('./Details');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Navbar from './Navbar';
+import HomeContainer from './HomeContainer';
+import Forecast from './Forecast';
+import Details from './Details';
 
 class App extends React.Component {
     render() {
         return (
-            <Router>
+            <BrowserRouter>
                 <div className="main-container">
                     <Navbar />
                     <Switch>
@@ -23,9 +21,9 @@ class App extends React.Component {
                         }} />
                     </Switch>
                 </div>
-            </Router>
+            </BrowserRouter>
         )
     }
 }
 
-module.exports = App;
+export default App;

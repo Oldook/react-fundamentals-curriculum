@@ -1,5 +1,5 @@
-var React = require('react');
-var CityForm = require('./CityForm');
+import React from 'react';
+import CityForm from './CityForm';
 
 class Navbar extends React.Component {
     render () {
@@ -12,4 +12,4 @@ class Navbar extends React.Component {
     }
 }
 
-module.exports = Navbar;
+export default Navbar;

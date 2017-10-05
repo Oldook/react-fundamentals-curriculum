@@ -1,6 +1,6 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var Link = require('react-router-dom').Link;
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class CityForm extends React.Component {
     constructor(props) {
@@ -61,4 +61,4 @@ CityForm.propTypes = {
     flexDirection: PropTypes.string.isRequired
 };
 
-module.exports = CityForm;
+export default CityForm;

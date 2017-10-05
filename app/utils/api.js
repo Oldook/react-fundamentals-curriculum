@@ -1,4 +1,4 @@
-var axios = require('axios');
+import axios from 'axios';
 
 var apiKey = 'a14b5b19ba12f3e8bd1524fb28064102';
 var url = 'http://api.openweathermap.org/data/2.5/';
@@ -19,7 +19,7 @@ function getForecast (city) {
     )
 }
 
-module.exports = {
-    getWeather: getWeather,
-    getForecast: getForecast
+export default {
+    getWeather,
+    getForecast
 }

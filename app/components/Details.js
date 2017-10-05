@@ -1,5 +1,5 @@
-var React = require('react');
-var Day = require('./Day');
+import React from 'react';
+import Day from './Day';
 
 class Details extends React.Component {
     constructor(props) {
@@ -31,4 +31,4 @@ class Details extends React.Component {
     }
 }
 
-module.exports = Details;
+export default Details;
