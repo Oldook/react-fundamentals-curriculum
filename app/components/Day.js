@@ -35,19 +35,19 @@ class Day extends React.Component {
     }
 
     getDate(timestamp) {
-        var date = new Date(timestamp * 1000);
+        const date = new Date(timestamp * 1000);
 
-        return this.days[date.getDay()] + ', ' + this.months[date.getMonth()] + ' ' + date.getDate();
+        return `${this.days[date.getDay()]}, ${this.months[date.getMonth()]} ${date.getDate()}`;
     }
 
     render() {
         return (
             <Link className = "detailLink" to={{
-                pathname: '/details/' + this.props.city,
+                pathname: `/details/${this.props.city}`,
                 state: { forecast: this.props.forecast }
             }}>
                 <div className = "day-container">
-                    <img className = "weather" src = {'/app/images/weather-icons/' + this.props.forecast.weather[0].icon + '.svg'} />
+                    <img className = "weather" src = {`/app/images/weather-icons/${this.props.forecast.weather[0].icon}.svg`} />
                     <h2 className = "date">{this.getDate(this.props.forecast.dt)}</h2>
                 </div>  
             </Link>

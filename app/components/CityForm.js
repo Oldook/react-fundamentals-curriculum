@@ -12,13 +12,11 @@ class CityForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
     handleChange (event) {
-        var value = event.target.value;
+        const value = event.target.value;
 
-        this.setState(function () {
-            return {
-                city: value
-            };
-        });
+        this.setState(() => ({
+            city: value
+        }));
     }
     render () {
         return (
@@ -38,7 +36,7 @@ class CityForm extends React.Component {
                             style={{margin: '10px'}}
                             to={{
                                 pathname: '/forecast',
-                                search: '?city=' + this.state.city
+                                search: `?city=${this.state.city}`
                             }}
                         >
                             Get Weather

@@ -17,31 +17,27 @@ class Forecast extends React.Component {
     } 
 
     apiRequest(city) {
-        this.setState(function () {
-            return {
-                loading: true
-            }
-        })
+        this.setState(() => ({
+            loading: true
+        }))
         
-        api.getForecast(city).then(function (response) {
-            this.setState(function () {
-                return {
-                    city: city,
-                    loading: false,
-                    forecast: response
-                }
-            })
-        }.bind(this));
+        api.getForecast(city).then(response => {
+            this.setState(() => ({
+                city,
+                loading: false,
+                forecast: response
+            }))
+        });
     }
 
     componentDidMount() {
-        var city = queryString.parse(this.props.location.search).city;
+        const city = queryString.parse(this.props.location.search).city;
 
         this.apiRequest(city);
     }
 
     componentWillReceiveProps(nextProps) {
-        var city = queryString.parse(nextProps.location.search).city;
+        const city = queryString.parse(nextProps.location.search).city;
 
         this.apiRequest(city);
     }
@@ -53,9 +49,11 @@ class Forecast extends React.Component {
             <div>
                 <h1 className="forecast-header">{this.state.city}</h1>
                 <div className="forecast-container">
-                    {this.state.forecast.list.map(function (item, i) {
-                        return <Day key = {i} forecast = {item} city = {this.state.city}/>
-                    }.bind(this))}
+                    {
+                        this.state.forecast.list.map((item, i) => 
+                            <Day key = {i} forecast = {item} city = {this.state.city}/>
+                        )
+                    }
                 </div>
             </div>       
     }

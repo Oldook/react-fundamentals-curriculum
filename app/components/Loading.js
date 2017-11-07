@@ -10,8 +10,8 @@ class Loading extends React.Component {
         }
     }
     componentDidMount() {
-        var stopper = this.props.text + '...';
-        this.interval = window.setInterval(function () {
+        const stopper = `${this.props.text}...`;
+        this.interval = window.setInterval(() => {
             if (this.state.text === stopper) {
                 this.setState( function () {
                     return {
@@ -19,13 +19,11 @@ class Loading extends React.Component {
                     }
                 })
             } else {
-                this.setState(function (prevState) {
-                    return {
-                        text: prevState.text + '.'
-                    }
-                })
+                this.setState(prevState => ({
+                    text: `${prevState.text}.`
+                }))
             }
-        }.bind(this), this.props.speed)
+        }, this.props.speed)
     }
     componentWillUnmount() {
         window.clearInterval(this.interval);
