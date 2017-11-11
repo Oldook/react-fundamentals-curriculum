@@ -1,10 +1,10 @@
 import React from 'react';
-import CityForm from './CityForm';
+import CityFormContainer from '../containers/CityFormContainer';
 
 const HomeContainer = () => 
     <div className="home-container" style={{backgroundImage: 'url(app/images/pattern.svg)'}}>
         <h1 className="header">Enter a City and State</h1>
-        <CityForm flexDirection="column" />
+        <CityFormContainer flexDirection="column" />
     </div>
 
 export default HomeContainer;
