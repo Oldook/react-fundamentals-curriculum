@@ -1,24 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const CityForm = (props) =>  
-    <div className="form-container" style={{flexDirection: props.flexDirection}}>
-        <input type="text"
+const CityForm = ({ flexDirection, handleChange, getCity }) =>
+    <div className="form-container" style={{flexDirection: flexDirection}}>
+        <input
+            type="text"
             id="city"
             placeholder="St. George, Utah"
-            type="text"
-            onChange={props.handleChange}
+            onChange={handleChange}
             className="form-control"
         />
         {
-            props.getCity() ? 
+            getCity() ?
                 <Link 
                     className="btn btn-success"
                     style={{margin: '10px'}}
                     to={{
                         pathname: '/forecast',
-                        search: `?city=${props.getCity()}`
+                        search: `?city=${getCity()}`
                     }}
                 >
                     Get Weather
