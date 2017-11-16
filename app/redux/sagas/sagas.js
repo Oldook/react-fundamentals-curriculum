@@ -1,8 +1,22 @@
 import api from '../../utils/api';
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery, all } from 'redux-saga/effects';
+
+export function* forecastApiRequest(action) {
+    console.log('here');
+    const response = yield call(api.getForecast, action.city);
+    console.log(response);
+    yield put({
+        type: 'SET_FORECAST',
+        forecast: response
+    });
+}
+
+export function* watchIncrementAsync() {
+    yield takeEvery('FORECAST_API_REQUEST', forecastApiRequest);
+}
 
 export default function* rootSaga() {
-    const response = yield call(api.getForecast, 'Novosibirsk');
-    console.log(response);
-    console.log('Hello Sagas!');
+    yield all([
+        watchIncrementAsync()
+    ]);
 }

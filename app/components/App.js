@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Navbar from './Navbar';
 import HomeContainer from './HomeContainer';
-import Forecast from './Forecast';
+import ForecastContainer from '../containers/ForecastContainer';
 import Details from './Details';
 
 const App = () =>
@@ -12,7 +12,7 @@ const App = () =>
             <Navbar />
             <Switch>
                 <Route exact path="/" component = { HomeContainer } />
-                <Route exact path="/forecast" component = { Forecast } />
+                <Route exact path="/forecast" component = { ForecastContainer } />
                 <Route exact path="/details/:city" component = { Details } />
                 <Route render={ () => <h1>Not Found</h1> } />
             </Switch>
