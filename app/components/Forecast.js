@@ -10,26 +10,37 @@ class Forecast extends React.Component {
 
         this.getForecast = this.props.getForecast;
         this.requestForecast = this.props.requestForecast;
-        this.ifLoading = this.props.ifLoading;
+        this.getState = this.props.getState;
         this.getCity = this.props.getCity;
         this.setLoading = this.props.setLoading;
-    } 
-
-    componentDidMount() {
-        const city = queryString.parse(this.props.location.search).city;
-
-        this.setLoading();
-        this.requestForecast(city);
+        this.setCity = this.props.setCity;
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     const city = queryString.parse(nextProps.location.search).city;
-    //
-    //     // this.requestForecast(city);
+    // componentWillMount() {
+    //     console.log('will mount');
+    //     this.setLoading();
+    //     console.log(this.ifLoading());
     // }
+    //
+    // componentDidMount() {
+    //     const city = queryString.parse(this.props.location.search).city;
+    //
+    //     this.requestForecast(city);
+    // }
+    //
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.location.search !== this.props.location.search) {
+            const city = queryString.parse(nextProps.location.search).city;
+
+            this.setCity(city);
+        }
+    }
 
     render () {
-        console.log(this.ifLoading());
+        // console.log('render');
+        // console.log(this.getForecast());
+        console.log('forecast state');
+        console.log(this.getState());
         return <Loading />
         // return this.ifLoading() ?
         //     <Loading />

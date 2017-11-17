@@ -17,30 +17,31 @@ export function setForecast(forecast) {
     }
 }
 
+export function setLoading() {
+    return {
+        type: SET_LOADING
+    }
+}
+
 export default function reducer(state = { city: '', loading: false, forecast: {} }, action) {
     switch (action.type) {
         case SET_CITY:
-            return Object.assign(
-                {},
-                state,
-                { city: action.city }
-            )
+            return {
+                ...state,
+                city: action.city
+            }
         case SET_LOADING:
-            return Object.assign(
-                {},
-                state,
-                { loading: true }
-            )
+            return {
+                ...state,
+                loading: true
+            }
         case SET_FORECAST:
-            console.log(action);
-            return Object.assign(
-                {},
-                state,
-                {
-                    loading: false,
-                    forecast: action.forecast
-                }
-            )
+            return {
+                ...state,
+                city: action.city,
+                loading: false,
+                forecast: action.forecast
+            }
         default:
             return state;
     }

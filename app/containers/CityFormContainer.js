@@ -5,7 +5,8 @@ import { setCity } from '../redux/modules/weatherApp';
 const mapStateToProps = (state, ownProps) => {
     return {
         flexDirection: ownProps.flexDirection,
-        getCity: () => state.city
+        getCity: () => state.city,
+        getState: () => state
     };
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CityForm = ({ flexDirection, handleChange, getCity }) =>
+const CityForm = ({ flexDirection, handleChange, getCity, getState }) =>
     <div className="form-container" style={{flexDirection: flexDirection}}>
         <input
             type="text"
@@ -10,6 +10,8 @@ const CityForm = ({ flexDirection, handleChange, getCity }) =>
             onChange={handleChange}
             className="form-control"
         />
+        { console.log('city form state')}
+        { console.log(getState()) }
         {
             getCity() ?
                 <Link 
