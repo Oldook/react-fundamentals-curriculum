@@ -7,54 +7,36 @@ import api from '../utils/api';
 class Forecast extends React.Component {
     constructor(props) {
         super(props);
-
-        this.getForecast = this.props.getForecast;
-        this.requestForecast = this.props.requestForecast;
-        this.getState = this.props.getState;
-        this.getCity = this.props.getCity;
-        this.setLoading = this.props.setLoading;
-        this.setCity = this.props.setCity;
     }
 
-    // componentWillMount() {
-    //     console.log('will mount');
-    //     this.setLoading();
-    //     console.log(this.ifLoading());
-    // }
-    //
-    // componentDidMount() {
-    //     const city = queryString.parse(this.props.location.search).city;
-    //
-    //     this.requestForecast(city);
-    // }
-    //
+    componentDidMount() {
+        const city = queryString.parse(this.props.location.search).city;
+
+        this.props.requestForecast(city);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.search !== this.props.location.search) {
             const city = queryString.parse(nextProps.location.search).city;
 
-            this.setCity(city);
+            this.props.requestForecast(city);
         }
     }
 
     render () {
-        // console.log('render');
-        // console.log(this.getForecast());
-        console.log('forecast state');
-        console.log(this.getState());
-        return <Loading />
-        // return this.ifLoading() ?
-        //     <Loading />
-        //     :
-        //     <div>
-        //         <h1 className="forecast-header">{this.getCity()}</h1>
-        //         <div className="forecast-container">
-        //             {
-        //                 this.getForecast().list.map((item, i) =>
-        //                     <Day key = {i} forecast = {item} city = {getCity()}/>
-        //                 )
-        //             }
-        //         </div>
-        //     </div>
+        return this.props.ifLoading() ?
+            <Loading />
+            :
+            <div>
+                <h1 className="forecast-header">{this.props.getCity()}</h1>
+                <div className="forecast-container">
+                    {
+                        this.props.getForecast().list.map((item, i) =>
+                            <Day key = {i} forecast = {item} city = {this.props.getCity()}/>
+                        )
+                    }
+                </div>
+            </div>
     }
 }
 

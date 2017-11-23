@@ -23,7 +23,7 @@ export function setLoading() {
     }
 }
 
-export default function reducer(state = { city: '', loading: false, forecast: {} }, action) {
+export default function reducer(state = { city: '', loading: true, forecast: {} }, action) {
     switch (action.type) {
         case SET_CITY:
             return {

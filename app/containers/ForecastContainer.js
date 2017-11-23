@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         getForecast: () => state.forecast,
         getCity: () => state.city,
+        ifLoading: () => state.loading,
         getState: () => state
     };
 };
@@ -13,7 +14,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         requestForecast: (city) => dispatch({ type: 'FORECAST_API_REQUEST', city}),
-        setCity: (city) => dispatch(setCity(city)),
         setLoading: () => dispatch(setLoading())
     };
 };

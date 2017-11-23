@@ -10,8 +10,6 @@ const CityForm = ({ flexDirection, handleChange, getCity, getState }) =>
             onChange={handleChange}
             className="form-control"
         />
-        { console.log('city form state')}
-        { console.log(getState()) }
         {
             getCity() ?
                 <Link 

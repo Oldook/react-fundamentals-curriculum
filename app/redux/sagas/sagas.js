@@ -2,6 +2,7 @@ import api from '../../utils/api';
 import { call, put, takeEvery, all } from 'redux-saga/effects';
 
 export function* forecastApiRequest(action) {
+    yield put ({ type: 'SET_LOADING' });
     const response = yield call(api.getForecast, action.city);
     yield put({
         type: 'SET_FORECAST',
