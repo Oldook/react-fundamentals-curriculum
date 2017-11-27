@@ -4,15 +4,13 @@ import { setCity } from '../redux/modules/weatherApp';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        flexDirection: ownProps.flexDirection,
-        getCity: () => state.city,
-        getState: () => state
+        flexDirection: ownProps.flexDirection
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleChange: (event) => dispatch(setCity(event.target.value))
+        onClick: (city) => dispatch(setCity(city)),
     };
 };
 
