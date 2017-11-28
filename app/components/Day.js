@@ -58,6 +58,6 @@ class Day extends React.Component {
 Day.propTypes = {
     forecast: PropTypes.object.isRequired,
     city: PropTypes.string.isRequired
-}
+};
 
 export default Day;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class CityForm extends React.Component {
@@ -54,5 +55,10 @@ class CityForm extends React.Component {
         </div>
     }
 }
+
+CityForm.propTypes = {
+    flexDirection: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 export default CityForm;

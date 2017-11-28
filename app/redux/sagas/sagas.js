@@ -1,14 +1,14 @@
 import api from '../../utils/api';
 import { call, put, takeEvery, all } from 'redux-saga/effects';
+import { setLoadingOn, setLoadingOff, setForecast } from '../modules/weatherApp';
 
 export function* forecastApiRequest(action) {
-    yield put ({ type: 'SET_LOADING' });
-    const response = yield call(api.getForecast, action.city);
-    yield put({
-        type: 'SET_FORECAST',
-        city: action.city,
-        forecast: response
-    });
+    yield put (setLoadingOn());
+
+    const forecast = yield call(api.getForecast, action.city);
+    yield put(setForecast(forecast));
+
+    yield put (setLoadingOff());
 }
 
 export function* watchIncrementAsync() {

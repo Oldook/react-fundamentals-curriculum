@@ -2,7 +2,7 @@ import React from 'react';
 import Loading  from './Loading';
 import Day from './Day';
 import queryString from 'query-string';
-import api from '../utils/api';
+import PropTypes from 'prop-types';
 
 class Forecast extends React.Component {
     constructor(props) {
@@ -39,5 +39,11 @@ class Forecast extends React.Component {
             </div>
     }
 }
+
+Forecast.propTypes = {
+    getForecast: PropTypes.func.isRequired,
+    getCity: PropTypes.func.isRequired
+};
+
 
 export default Forecast;

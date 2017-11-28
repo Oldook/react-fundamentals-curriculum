@@ -1,6 +1,8 @@
 const SET_CITY = 'SET_CITY';
 const SET_FORECAST = 'SET_FORECAST';
-const SET_LOADING = 'SET_LOADING';
+const LOADING_ON = 'LOADING_ON';
+const LOADING_OFF = 'LOADING_OFF';
+
 const FORECAST_API_REQUEST = 'FORECAST_API_REQUEST';
 
 export function setCity(city) {
@@ -17,9 +19,22 @@ export function setForecast(forecast) {
     }
 }
 
-export function setLoading() {
+export function setForecastApiRequest(city) {
     return {
-        type: SET_LOADING
+        type: 'FORECAST_API_REQUEST',
+        city
+    }
+}
+
+export function setLoadingOn() {
+    return {
+        type: LOADING_ON
+    }
+}
+
+export function setLoadingOff() {
+    return {
+        type: LOADING_OFF
     }
 }
 
@@ -29,19 +44,22 @@ export default function reducer(state = { city: '', loading: true, forecast: {} 
             return {
                 ...state,
                 city: action.city
-            }
-        case SET_LOADING:
+            };
+        case LOADING_ON:
             return {
                 ...state,
                 loading: true
-            }
+            };
+        case LOADING_OFF:
+            return {
+                ...state,
+                loading: false
+            };
         case SET_FORECAST:
             return {
                 ...state,
-                city: action.city,
-                loading: false,
                 forecast: action.forecast
-            }
+            };
         default:
             return state;
     }
