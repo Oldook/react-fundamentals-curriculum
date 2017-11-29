@@ -1,5 +1,6 @@
 const SET_CITY = 'SET_CITY';
 const SET_FORECAST = 'SET_FORECAST';
+const SET_DETAILS = 'SET_DETAILS';
 const LOADING_ON = 'LOADING_ON';
 const LOADING_OFF = 'LOADING_OFF';
 
@@ -38,7 +39,14 @@ export function setLoadingOff() {
     }
 }
 
-export default function reducer(state = { city: '', loading: true, forecast: {} }, action) {
+export function setDetails(details) {
+    return {
+        type: SET_DETAILS,
+        details
+    }
+}
+
+export default function reducer(state = { city: '', loading: true, forecast: {}, details: {} }, action) {
     switch (action.type) {
         case SET_CITY:
             return {
@@ -59,6 +67,11 @@ export default function reducer(state = { city: '', loading: true, forecast: {} 
             return {
                 ...state,
                 forecast: action.forecast
+            };
+        case SET_DETAILS:
+            return {
+                ...state,
+                details: action.details
             };
         default:
             return state;

@@ -5,6 +5,6 @@ const Navbar = () =>
     <div className="app-navbar">
         <h1>WeatherApp</h1>
         <CityFormContainer flexDirection="row" />
-    </div>
+    </div>;
 
 export default Navbar;

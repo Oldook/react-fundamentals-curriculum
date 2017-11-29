@@ -5,6 +5,6 @@ const HomeContainer = () =>
     <div className="home-container" style={{backgroundImage: 'url(app/images/pattern.svg)'}}>
         <h1 className="header">Enter a City and State</h1>
         <CityFormContainer flexDirection="column" />
-    </div>
+    </div>;
 
 export default HomeContainer;

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Navbar from './Navbar';
 import HomeContainer from './HomeContainer';
 import ForecastContainer from '../containers/ForecastContainer';
-import Details from './Details';
+import DetailsContainer from '../containers/DetailsContainer';
 
 const App = () =>
     <Provider store={createStoreWithMiddleware()}>
@@ -15,11 +15,11 @@ const App = () =>
                 <Switch>
                     <Route exact path="/" component = { HomeContainer } />
                     <Route exact path="/forecast" component = { ForecastContainer } />
-                    <Route exact path="/details/:city" component = { Details } />
+                    <Route exact path="/details/:city" component = { DetailsContainer } />
                     <Route render={ () => <h1>Not Found</h1> } />
                 </Switch>
             </div>
         </BrowserRouter>
-    </Provider>
+    </Provider>;
 
 export default App;

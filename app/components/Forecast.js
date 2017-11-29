@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading  from './Loading';
-import Day from './Day';
+import DayContainer from '../containers/DayContainer';
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
@@ -32,7 +32,7 @@ class Forecast extends React.Component {
                 <div className="forecast-container">
                     {
                         this.props.getForecast().list.map((item, i) =>
-                            <Day key = {i} forecast = {item} city = {this.props.getCity()}/>
+                            <DayContainer key = {i} day = {i} />
                         )
                     }
                 </div>
